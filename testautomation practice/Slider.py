@@ -14,15 +14,21 @@ driver.get(r"https://testautomationpractice.blogspot.com/")
 driver.implicitly_wait(10)
 
 slider1=driver.find_element(By.XPATH, "//div[@id='HTML7']//span[1]")
-
-actions=ActionChains(driver)
-actions.click_and_hold(slider1).move_by_offset(25,0).release().perform()
-
-
 slider2=driver.find_element(By.XPATH, "//div[@id='HTML7']//span[2]")
 
+print("Location of sliders before moving")
+print(slider1.location) #{'x': 975, 'y': 2025}
+print(slider2.location) #{'x': 1105, 'y': 2025}
+
 actions=ActionChains(driver)
-actions.move_to_element(slider2).click_and_hold(slider2).move_by_offset(-50,0).release().perform()
+
+actions.drag_and_drop_by_offset(slider1, 20, 0).perform()
+actions.drag_and_drop_by_offset(slider2, -40, 0).perform()
+
+print("Location of sliders after moving")
+print(slider1.location) #{'x': 1000, 'y': 2025}
+print(slider2.location) #{'x': 1004, 'y': 2025}
+
 
 time.sleep(10)
 

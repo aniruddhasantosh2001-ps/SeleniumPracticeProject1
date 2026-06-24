@@ -1,22 +1,22 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common import actions
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.select import Select
 import time
 
 
-serv_obj=Service(r"C:\Drivers\chromedriver-win64\chromedriver.exe")
+serv_obj=Service(ChromeDriverManager().install())
 driver=webdriver.Chrome(service=serv_obj)
 driver.maximize_window()
 
 driver.get(r"https://testautomationpractice.blogspot.com/")
 driver.implicitly_wait(10)
 
-driver.find_element(By.ID, "name").send_keys("Aniruddha S") #Name
+driver.find_element(By.ID, "name").send_keys("Anirudh S") #Name
 driver.find_element(By.ID, "email").send_keys("anirudh.santosh@gmail.com") #Email
-driver.find_element(By.ID, "phone").send_keys("9986928446") #Phone
+driver.find_element(By.ID, "phone").send_keys("9986924445") #Phone
 driver.find_element(By.XPATH, "//textarea[@id='textarea']").send_keys("Vijayanagar Bengaluru 560010") #Address
 driver.find_element(By.XPATH, "//input[@id='male']").click() #Gender
 
@@ -39,7 +39,7 @@ animal=Select(driver.find_element(By.XPATH, "//select[@id='animals']"))
 animal.select_by_visible_text("Lion")
 
 #Date Picker 1
-date="24"
+date="14"
 month="June"
 year="2026"
 
@@ -74,14 +74,14 @@ datepicker_yr.select_by_visible_text("2026")
 dates2=driver.find_elements(By.XPATH, "//table[@class='ui-datepicker-calendar']/tbody/tr/td/a")
 
 for dat2 in dates2:
-    if dat2.text=="24":
+    if dat2.text=="14":
         dat2.click()
         break
 
 # Date Picker 3
 
-driver.find_element(By.XPATH, "//*[@id='start-date']").send_keys("24-06-2025")
-driver.find_element(By.XPATH, "//*[@id='end-date']").send_keys("24-06-2026")
+driver.find_element(By.XPATH, "//*[@id='start-date']").send_keys("14-06-2025")
+driver.find_element(By.XPATH, "//*[@id='end-date']").send_keys("14-06-2026")
 driver.find_element(By.XPATH, "//*[@id='post-body-1307673142697428135']/div[8]/button")
 
 #Tabs
@@ -139,12 +139,6 @@ for handle in driver.window_handles:
         break
 
 driver.switch_to.window(driver.window_handles[0])
-
-# Mouse Hover
-
-hover=driver.find_element(By.XPATH, "//button[normalize-space()='Point Me']")
-actions=ActionChains(driver)
-actions.move_to_element(hover).perform()
 
 
 
