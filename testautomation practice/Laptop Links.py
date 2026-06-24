@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
-serv_obj=Service(r"C:\Drivers\chromedriver-win64\chromedriver.exe")
+serv_obj=Service(ChromeDriverManager().install())
 driver=webdriver.Chrome(service=serv_obj)
 driver.maximize_window()
 

@@ -6,7 +6,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.select import Select
 
 
-serv_obj=Service(r"C:\Drivers\chromedriver-win64\chromedriver.exe")
+serv_obj=Service(ChromeDriverManager().install())
 driver=webdriver.Chrome(service=serv_obj)
 driver.maximize_window()
 
