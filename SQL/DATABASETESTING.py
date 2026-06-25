@@ -1,13 +1,16 @@
-import re
+
+import re #Regular Expressions
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-import mysql.connector
-import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
-from selenium.webdriver.common.action_chains import ActionChains
+
+import mysql.connector
+
+import time
+
 
 serv_obj=Service(ChromeDriverManager().install())
 driver=webdriver.Chrome(service=serv_obj)
