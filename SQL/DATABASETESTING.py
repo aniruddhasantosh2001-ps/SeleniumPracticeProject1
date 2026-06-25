@@ -46,7 +46,7 @@ for row in cursor:
 
     #validation
     if int(act_clean)==int(exp_mvalue):
-       print("test Passed")
+       print("Test Passed")
     else:
         print("Test Failed")
 
