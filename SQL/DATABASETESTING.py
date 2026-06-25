@@ -1,5 +1,4 @@
 import re
-from multiprocessing import connection
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
